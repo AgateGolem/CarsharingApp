@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {useRoutes} from "./routes";
+import Sidebar from "./Components/SideBar";
+import "./styles/SideBar.css";
+import MenuContext from "./Context/MenuContext";
 
 function App() {
+  const routes = useRoutes()
+  const [width, setWidth] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <MenuContext.Provider value={[width, setWidth]}>
+          <Sidebar />
+          {routes}
+        </MenuContext.Provider>
+      </div>
   );
 }
 
