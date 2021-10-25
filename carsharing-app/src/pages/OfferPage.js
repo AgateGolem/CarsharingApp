@@ -1,28 +1,40 @@
 import React, { useState } from "react";
-import { Route } from "react-router";
+import Header from '../Components/Header';
 import Location from "../Components/Location"
 import Model from "../Components/Model"
-import Steps from "../Components/Steps";
-import { DataContext } from "../Context/DataContext";
-import "../styles/OfferPage.css"
-import "../styles/Header.css"
+import StepNavigation from "../Components/StepNavigation";
 
 const OfferPage = () => {
-    const [data, setData] = useState({
-        city: '', point: '', model: '', color: '', dateFrom: '',
-        dateTo: '', tariff: '', fuel: '', seat: '', handDrive: ''
-    })
+    const [currentStep, setCurrentStep] = useState(1);
+    const labelArray = ['Местоположение', 'Модель', 'Дополнительно', 'Итого']
+    const updateStep = (step) => {
+        setCurrentStep(step);
+    }
+
+    const renderStep = () => {
+        switch (currentStep) {
+            
+            case 1: 
+                return <Location updateStep={updateStep} currentStep={currentStep}/>
+            case 2:
+                break;
+
+            case 3: 
+                break;
+
+            case 4: 
+                break;
+
+            default:
+                return <Location updateStep={updateStep} currentStep={currentStep}/>
+        }
+    }
+
     return (
         <div>
-            <DataContext.Provider value={[data, setData]}>
-                <Steps />
-                <Route path="/offer">
-                    <Location />
-                </Route>
-                <Route path="/offer/model">
-                    <Model />
-                </Route>
-            </DataContext.Provider>
+            <Header />
+            <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep}></StepNavigation>
+            { renderStep() }
         </div>
     )
 }

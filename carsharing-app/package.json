@@ -42,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
-    "homepage": "https://agategolem.github.io/CarsharingApp/"
+    "gh-pages": "^3.2.3"
   }
 }
