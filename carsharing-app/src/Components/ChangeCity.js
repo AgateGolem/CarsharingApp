@@ -14,6 +14,7 @@ const ChangeCity = (props) => {
 
     const onChange = (event, { newValue }) => {
         setValue(newValue);
+        props.setCity(newValue)
     };
 
     const getCities = () => requests.getCities('/city/', (response) => {
@@ -23,7 +24,6 @@ const ChangeCity = (props) => {
 
     const changeInput = (e) => {
         setValue(e.target.value)
-        props.setCity(value)
     }
 
     const clearInput = () => {
@@ -70,7 +70,7 @@ const ChangeCity = (props) => {
                 <label className={cs.map__city}>Город</label>
                 <Clear class={cn(cs.svg, {[cs.active]: value})} onClick={clearInput} />
                 <Autosuggest
-                    alwaysRenderSuggestions={true}
+                    focusInputOnSuggestionClick={false}
                     suggestions={suggestions}
                     onSuggestionsFetchRequested={onSuggestionsFetchRequested}
                     onSuggestionsClearRequested={onSuggestionsClearRequested}
