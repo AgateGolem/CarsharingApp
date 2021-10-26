@@ -8,13 +8,13 @@ export const useRoutes = () => {
     return (
         <Router>
             <Switch>
-                <Route path="CarsharingApp/" exact>
+                <Route exact path="/" >
                     <MainPage />
                 </Route>
-                <Route path="CarsharingApp/offer">
+                <Route path="/offer">
                     <OfferPage />
                 </Route>
-                <Redirect to="CarsharingApp/" />
+                <Redirect to="/" />
             </Switch>
         </Router>
     )

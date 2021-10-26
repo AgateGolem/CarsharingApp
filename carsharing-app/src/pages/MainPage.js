@@ -20,7 +20,7 @@ const MainPage = () => {
     return (
         <div>
             <div className={mainpage.header}>
-                <Link to='CarsharingApp/' style={{textDecoration: 'none'}}><div className={mainpage.header__logo}>
+                <Link to='/' style={{textDecoration: 'none'}}><div className={mainpage.header__logo}>
                     Need for drive
                 </div></Link>
                 <div className={mainpage.header__map}>
