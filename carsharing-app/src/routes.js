@@ -4,12 +4,11 @@ import { Switch, Route, Redirect } from "react-router";
 import MainPage from "./pages/MainPage";
 import OfferPage from "./pages/OfferPage";
 
-
 export const useRoutes = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path={process.env.PUBLIC_URL + '/'} >
+                <Route exact path="/" >
                     <MainPage />
                 </Route>
                 <Route path="/offer">
