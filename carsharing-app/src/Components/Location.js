@@ -132,6 +132,7 @@ const Location = (props) => {
         onChange: onChangeCity,
         onClick: getCities
     };
+    
 
     const inputPropsPoint = {
         placeholder: 'Начните вводить пункт ...',
