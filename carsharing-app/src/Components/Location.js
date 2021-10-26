@@ -135,7 +135,7 @@ const Location = (props) => {
 
     const inputPropsPoint = {
         placeholder: 'Начните вводить пункт ...',
-        value: namePoint,
+        value: pointValue,
         onChange: onChangePoint,
         onClick: getPoints,
         disabled: !nameCity
