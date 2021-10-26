@@ -8,13 +8,13 @@ export const useRoutes = () => {
     return (
         <Router>
             <Switch>
-                <Route path="/" exact>
+                <Route path="" exact>
                     <MainPage />
                 </Route>
-                <Route path="/offer">
+                <Route path="offer">
                     <OfferPage />
                 </Route>
-                <Redirect to="/" />
+                <Redirect to="" />
             </Switch>
         </Router>
     )
