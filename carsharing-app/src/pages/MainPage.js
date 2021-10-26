@@ -37,7 +37,7 @@ const MainPage = () => {
                         <h1 className={mainpage.content__name}>Каршеринг</h1>
                         <h1 className={cn(mainpage.content__name, mainpage.content__name_colorized)}>Need for drive</h1>
                         <p className={mainpage.content__description}>Поминутная аренда авто твоего города</p>
-                        <Link to={"/offer/location"} style={{textDecoration: 'none'}}>    
+                        <Link to={"CarsharingApp/offer/"} style={{textDecoration: 'none'}}>    
                             <div className={cn(mainpage.button, mainpage.content__button)}>
                                 Забронировать
                             </div>
