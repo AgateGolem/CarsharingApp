@@ -35,13 +35,13 @@ $gray_light: #EEEEEE;
         color: $gray_dark;
     } 
 
-    &:not(:last-child) > span::after{
+    &:not(:first-child) > span::before{
         content: '';
         border: 4px solid transparent;
         border-left: 8px solid $gray_dark;
         display: inline-block;
         text-align: center;
-        margin: 0 4px 0 9px;
+        margin: 0 10px 0 15px;
     } 
 
 }
@@ -81,7 +81,7 @@ $gray_light: #EEEEEE;
         font-size: 12px;
         font-weight: 400;
 
-        &:not(:last-child) > span::after{
+        &:not(:first-child) > span::before{
             display: none;
         } 
     }

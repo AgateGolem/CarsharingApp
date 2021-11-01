@@ -1,6 +1,6 @@
 .container {
-  margin-top: 5px;
-  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 .input {
@@ -12,11 +12,19 @@
   font-weight: 100;
 }
 
+.suggestionsContainer {
+  position: absolute;
+  display: none;
+}
+
 .suggestionsContainerOpen {
+  display: block;
   background: white;
   width: 250px;
-  max-height: 106px;
+  max-height: 90px;
   overflow-y: auto;
+  border: 1px solid #EEEEEE;
+  z-index: 10;
 }
 
 .suggestionsList {
@@ -28,7 +36,6 @@
   margin: 8px 0;
   color: #999999;
 }
-
 .suggestion:hover {
   color: #0EC261;
   cursor: pointer;
@@ -42,5 +49,4 @@
   .input {
     width: 200px;
   }
-}
-/*# sourceMappingURL=Theme.module.css.map */
+}/*# sourceMappingURL=Theme.module.css.map */

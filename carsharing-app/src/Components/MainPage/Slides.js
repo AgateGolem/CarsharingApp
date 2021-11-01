@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import cn from "classnames";
 import { ReactSVG } from "react-svg";
-import Tesla from '../img/Tesla.jpg';
-import Ferrari from '../img/Ferrari.jpg';
-import Porsche from '../img/Porsche.jpg';
-import GTR from '../img/GTR.jpg';
-import arrowLeft from "../img/icons/arrowLeft.svg";
-import arrowRight from "../img/icons/arrowRight.svg";
-import slider from "../styles/Slider.module.css";
+import Tesla from '../../img/Tesla.jpg';
+import Ferrari from '../../img/Ferrari.jpg';
+import Porsche from '../../img/Porsche.jpg';
+import GTR from '../../img/GTR.jpg';
+import arrowLeft from "../../img/icons/arrowLeft.svg";
+import arrowRight from "../../img/icons/arrowRight.svg";
+import slider from "../../styles/Slider.module.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const slides = [
     {
@@ -36,9 +38,17 @@ const slides = [
     }
 ];
 
-export const Slider = () => {
+export const Slides = () => {
     const [active, setActive] = useState(0);
     const max = slides.length;
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
 
     const nextOne = () => active < max - 1 && setActive(active + 1)
 
@@ -64,12 +74,12 @@ export const Slider = () => {
             <div 
                 className={slider.slide__desc}
                 key= { index }>
-            <div className={slider.slide__head}>{ item.head }</div>
-            <div className={slider.slide__text}>{ item.text }</div>
-            <div 
-            className={cn(slider.slide__button, slider.button)}
-            style={{ background: item.color }}>Подробнее</div>
-        </div>
+                    <div className={slider.slide__head}>{ item.head }</div>
+                    <div className={slider.slide__text}>{ item.text }</div>
+                    <div 
+                    className={cn(slider.slide__button, slider.button)}
+                    style={{ background: item.color }}>Подробнее</div>
+            </div>
         </div> 
     ));
     
@@ -87,13 +97,13 @@ export const Slider = () => {
         <React.Fragment>
             <button 
                 type='button'
-                className={cn(slider.arrows, slider.prev)} 
+                className={cn(slider.arrows, slider.prev, {[slider.end]: active===0})} 
                 onClick={ () => prevOne() } >
                 <ReactSVG src={arrowLeft} />
             </button>
             <button 
                 type='button'
-                className={cn(slider.arrows, slider.next)} 
+                className={cn(slider.arrows, slider.next, {[slider.end]: active===slides.length-1})} 
                 onClick={ () => nextOne() } > 
                 <ReactSVG src={arrowRight} />
             </button>
@@ -113,6 +123,6 @@ export const Slider = () => {
             <ul className={slider.dots_container}>
                 { renderDots() }
             </ul>
-        </section>
+        </section> 
     );
 };

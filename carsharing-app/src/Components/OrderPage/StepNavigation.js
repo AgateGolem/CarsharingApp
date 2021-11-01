@@ -1,6 +1,6 @@
 import React from "react";
 import Steps from "./Steps";
-import steps from "../styles/Steps.module.css"
+import steps from "../../styles/Steps.module.css"
 
 const StepNavigation = (props) => {
     return (

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import { YMaps, Map } from 'react-yandex-maps';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCity, setPoint } from "../store/actions";
-import { requests } from "../requests";
+import { setCity, setPoint } from "../../store/actions";
+import { requests } from "../../requests";
 import Autosuggest from 'react-autosuggest';
-import { ReactComponent as Arrow } from "../img/icons/arrowUp.svg";
-import { ReactComponent as Clear } from "../img/icons/close.svg";
-import location from "../styles/Location.module.css";
-import theme from "../styles/Theme.module.css";
+import { ReactComponent as Arrow } from "../../img/icons/arrowUp.svg";
+import { ReactComponent as Clear } from "../../img/icons/close.svg";
+import location from "../../styles/Location.module.css";
+import theme from "../../styles/Theme.module.css";
 
 const Location = (props) => {
     const [cities, setCities] = useState([]);
@@ -17,8 +17,14 @@ const Location = (props) => {
     const [cityValue, setCityValue] = useState('');
     const [pointValue, setPointValue] = useState('');
     const [citySuggestions, setCitySuggesitons] = useState(cities);
-    const [pointSuggestions, setPointSuggesitons] = useState([points]);
+    const [pointSuggestions, setPointSuggesitons] = useState(points);
     const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        requests.getCities('/city', (response) =>{
+            setCities(response.data.data);
+    })})
 
     const toggleOrder = () => {
         setToggle(!toggle);
@@ -28,16 +34,13 @@ const Location = (props) => {
         const { orderReducer } = state;
         return orderReducer.city;
     })
+    
     const namePoint = useSelector(state => {
         const { orderReducer } = state;
         return orderReducer.point;
     })
 
-    const getCities = () => requests.getCities('/city', (response) =>{
-        setCities(response.data.data);
-    })
-
-    const getPoints = () => {
+    const getPoints = (cityValue) => {
         const town = cities.find(el => el.name === cityValue);
         try{
             requests.getPoints(town, '/point?cityId=', (response) => {
@@ -47,11 +50,12 @@ const Location = (props) => {
         catch {
             alert("Укажите город")
         }
-        
     }
 
     const clearCityInput = () => {
         setCityValue("");
+        setPointValue("");
+        dispatch(setPoint(""));
         dispatch(setCity(""));
     }
 
@@ -71,8 +75,7 @@ const Location = (props) => {
     const getCitySuggestions = value => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
-
-        return inputLength === 0 ? [] : cities.filter(city =>
+        return inputLength === 0 ? cities : cities.filter(city =>
             city.name.toLowerCase().slice(0, inputLength) === inputValue
         );
     };
@@ -80,8 +83,7 @@ const Location = (props) => {
     const getPointSuggestions = value => {
         const inputValue = value.trim().toLowerCase();
         const inputLength = inputValue.length;
-
-        return inputLength === 0 ? [] : points.filter(point =>
+        return inputLength === 0 ? points : points.filter(point =>
             point.name.toLowerCase().slice(0, inputLength) === inputValue
         );
     };
@@ -98,6 +100,14 @@ const Location = (props) => {
         dispatch(setPoint(pointName));
     }
 
+    const shouldRenderCitySuggestions = ( value ) => {
+        return value.trim().length >= 0;
+    }
+
+    const shouldRenderPointSuggestions = ( value ) => {
+        return value.trim().length >= 0;
+    }
+
     const renderCitySuggestion = citySuggestion => (
         <div onClick={() => sendCity(citySuggestion.name)}>
             {citySuggestion.name}
@@ -110,6 +120,11 @@ const Location = (props) => {
         </div>
     )
 
+    const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
+        getPoints(suggestionValue);
+    }
+
+
     const onCitySuggestionsFetchRequested = ({ value }) => {
         setCitySuggesitons(getCitySuggestions(value));
     };
@@ -119,18 +134,17 @@ const Location = (props) => {
     };
 
     const onCitySuggestionsClearRequested = () => {
-        setCitySuggesitons([]);
+        setCitySuggesitons(cities);
     };
 
     const onPointSuggestionsClearRequested = () => {
-        setPointSuggesitons([]);
+        setPointSuggesitons(points);
     };
 
     const inputPropsCity = {
         placeholder: 'Начните вводить город ...',
         value: cityValue,
-        onChange: onChangeCity,
-        onClick: getCities
+        onChange: onChangeCity
     };
     
 
@@ -138,19 +152,9 @@ const Location = (props) => {
         placeholder: 'Начните вводить пункт ...',
         value: pointValue,
         onChange: onChangePoint,
-        onClick: getPoints,
         disabled: !nameCity
     };
-
-    /* 
-        <label>Город</label>
-                            <input type="text" className={location.input} list="towns" onClick={getCities} onChange={handleChangeCity}></input>
-                            <datalist id="towns">{citiesList()}</datalist>
-
-                            <label>Пункт выдачи</label>
-                            <input type="text" className={location.input} list="points" onClick={getPoints} onChange={handleChangePoint}></input>
-                            <datalist id="points">{pointsList()}</datalist>
-    */
+    
     return (
         <div className={location.wrapper}>
             <div className={location.main}>
@@ -161,21 +165,24 @@ const Location = (props) => {
                             <Autosuggest
                                 id="city"
                                 focusInputOnSuggestionClick={false}
+                                shouldRenderSuggestions={shouldRenderCitySuggestions}
                                 suggestions={citySuggestions}
                                 onSuggestionsFetchRequested={onCitySuggestionsFetchRequested}
                                 onSuggestionsClearRequested={onCitySuggestionsClearRequested}
                                 getSuggestionValue={getCitySuggestionValue}
+                                onSuggestionSelected={onSuggestionSelected}
                                 renderSuggestion={renderCitySuggestion}
                                 inputProps={inputPropsCity}
                                 theme={theme}
                             />
-                            <Clear class={cn(location.svg, {[location.active]: cityValue})} onClick={clearCityInput} />
+                            <Clear className={cn(location.svg, {[location.active]: cityValue})} onClick={clearCityInput} />
                         </div>
                         <div className={location.inputs__point}>
                             <label>Пункт выдачи</label>
                             <Autosuggest
                                 id="point"
                                 focusInputOnSuggestionClick={false}
+                                shouldRenderSuggestions={shouldRenderPointSuggestions}
                                 suggestions={pointSuggestions}
                                 onSuggestionsFetchRequested={onPointSuggestionsFetchRequested}
                                 onSuggestionsClearRequested={onPointSuggestionsClearRequested}
@@ -184,7 +191,7 @@ const Location = (props) => {
                                 inputProps={inputPropsPoint}
                                 theme={theme}
                             />
-                            <Clear class={cn(location.svg, {[location.active]: pointValue})} onClick={clearPointInput} />
+                            <Clear className={cn(location.svg, {[location.active]: pointValue})} onClick={clearPointInput} />
                         </div>
                     </div>
                 <div className={location.map}>
@@ -196,7 +203,7 @@ const Location = (props) => {
                     </div>
                 </div>
             </div>
-                <div className={location.border}>
+                <div className={cn(location.border, {[location.open] : toggle})}>
                     <div className={cn(location.arrowWrapp, {[location.open] : toggle})} onClick={toggleOrder}>
                         <Arrow />
                     </div>
@@ -204,11 +211,11 @@ const Location = (props) => {
                         <div className={location.order__wrapp}>
                             <div className={location.order__desc}>
                                 <div className={location.order__head}>Ваш заказ:</div>
-                                <div className={cn(location.order__point, {[location.openDesc] : toggle})}>
+                                <div className={cn(location.order__point, {[location.openDesc] : namePoint}, {[location.openMobile]: toggle})}>
                                     <div className={location.point__name}>Пункт выдачи</div>
-                                    <div className={location.point__address}>{namePoint}</div>
+                                    <div className={location.point__address}>{nameCity + ','} <br/> {namePoint}</div>
                                 </div>
-                                <div className={cn(location.order__pricename, {[location.openDesc] : toggle})}>Цена:<p className={location.order__price}>от 8 000 до 12 000₽</p></div>
+                                <div className={cn(location.order__pricename, {[location.openDesc] : namePoint}, {[location.openMobile]: toggle})}>Цена:<p className={location.order__price}>от 8 000 до 12 000₽</p></div>
                             </div>
                             <div className={cn({[location.active]:namePoint}, location.order__button)} onClick={() => props.updateStep(props.currentStep + 1)}>Выбрать модель</div>
                         </div>

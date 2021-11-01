@@ -8,7 +8,7 @@ $gray_light: #EEEEEE;
   padding-top: 32px;
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: calc(50% + 64px);
   position: absolute;
   top: 0;
   left: 0;
@@ -16,7 +16,7 @@ $gray_light: #EEEEEE;
   z-index: 1;
 
   &__logo {
-    padding-left: 128px;
+  margin-left: 128px;
   font-size: 30px;
   font-weight: bold;
   color: $main_color;
@@ -26,13 +26,11 @@ $gray_light: #EEEEEE;
   display: flex;
   flex-direction: column;
   margin-left: auto;
+  margin-right: 64px;
   font-size: 14px;
   font-weight: medium;
   color: #999999;
-  padding-top: 14px;
-  &:hover {
-    cursor: pointer;
-  }
+  padding-top: 6px;
   }
 }
 
@@ -77,12 +75,12 @@ align-items: center;
   
   .button {
     &:hover {
-      background: linear-gradient(90deg, #0B934A, #026E47);
+      filter: brightness(0.9);
       cursor: pointer;
     }
   
     &:active {
-      background: linear-gradient(90deg, #076432, #013C27);
+      filter: brightness(0.8);
     }
   }
   
@@ -97,22 +95,6 @@ align-items: center;
   .map__name {
     margin-left: auto;
     margin-right: 0;
-  }
-  
-  .map__input {
-    height: 15px;
-    border: none;
-    border-bottom: 1px #999999 solid;
-  
-    :active {
-      outline: 0;
-      outline-offset: 0;
-    }
-  }
-  
-  :hover, :focus {
-    outline: 0;
-    outline-offset: 0;
   }
   
   .map__city {
@@ -163,6 +145,7 @@ align-items: center;
   .footer {
     flex: 0 0 auto;
     display: flex;
+    padding-bottom: 32px;
   }
   
   .footer__license {
@@ -186,15 +169,22 @@ align-items: center;
       margin-left: 32px;
       width: 60%;
     }
+
+    .header {
+      &__logo{
+        margin-left: 97px;
+      }
+
+      &__map {
+        margin-right: 32px;
+      }
+    }
   }
   
   @media (max-width: 768px) {
     .header {
       width: 100%;
-    
-      &__map {
-        margin-right: 63px;
-      }
+
     }
     .information {
       margin-left: 32px;
@@ -226,6 +216,7 @@ align-items: center;
     .header__map {
       padding-top: 0;
       margin-right: 16px;
+      margin-top: 8px;
     
       &.max {
         margin-right: 16px;
@@ -261,18 +252,23 @@ align-items: center;
   
     .footer {
       background: #151B1F;
-      flex-direction: column;
-      height: 72px;
-      line-height: 2px;
+      padding-bottom: 0;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 17px 0;
     }
   
     .footer__license {
+      margin:0;
       margin-left: auto;
       margin-right: 16px;
     }
   
     .footer__phone {
+      margin:0;
+      margin-left: auto;
       color: #0EC261;
       margin-right: 16px;
+      margin-bottom: 8px;
     }
   }

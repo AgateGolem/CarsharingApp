@@ -144,13 +144,17 @@ $order_color: #151B1F;
     }
 
     &__point {
-        display: flex;
+        display: none;
         justify-content: space-between;
         height: 30px;
         margin-top: 26px;
-        display: flex;
         align-items: flex-end;
         border-bottom: .1em dotted $gray_dark;
+        
+        &.openDesc {
+            display: flex;
+        }
+
         &:after {
             content: '';
             display: table;
@@ -160,9 +164,13 @@ $order_color: #151B1F;
 
     &__pricename {
         margin-top: 32px;
-        display: flex;
+        display: none;
         font-size: 16px;
         font-weight: 500;
+
+        &.openDesc {
+            display: flex;
+        }
 
         & p {
             margin: 0;
@@ -217,6 +225,7 @@ $order_color: #151B1F;
     margin-bottom: -.31em;
     background: #FFF;
     margin-left: auto;
+    text-align: right;
 }
 
 @media (min-width: 1632px) {
@@ -278,7 +287,14 @@ $order_color: #151B1F;
             display: flex;
             flex-direction: column;
             width: 80%;
+            height: 60px;
             margin-left: 0;
+
+            & .svg {
+                top: -18px;
+                right: -183px;
+                min-height: 20px;            
+            }
 
             & label{
                 text-align: start;
@@ -289,7 +305,14 @@ $order_color: #151B1F;
             display: flex;
             flex-direction: column;
             width: 80%;
+            height: 60px;
             margin-left: 0;
+
+            & .svg {
+                top: -18px;
+                right: -183px;
+                min-height: 20px;
+            }
         }
     }
 }
@@ -321,29 +344,44 @@ $order_color: #151B1F;
     .inputs {
         margin-top: 16px;
 
-        &__city label{
-            text-align: start;
+        &__city {
+    
+            & .svg {
+                top: -18px;
+                right: -183px;
+            }
+    
+            & label {
+                text-align: start;
+            }
+        }
+
+        &__point {
+    
+            & .svg {
+                top: -18px;
+                right: -183px;
+            }
         }
     }
+
     .map {
         margin-top: 10px;
     }
     .arrowWrapp {
         display: flex;
         width: 2.5em;
-        height: 1.25em;  /* высота в два раза меньше ширины, иначе получится полуовал */
         border: 2px solid $order_color;
         border-radius: 50% 50% 0 0 / 100% 100% 0 0; 
         background-color: $order_color;
-        position: fixed;
+        position: relative;
         z-index: 2;
         left: 45%;
-        bottom: 13%;
+        bottom: 22%;
         transition: .3s ease all;
 
         &.open {
-            bottom: 81%;
-            
+            bottom: 3.5%;
             transition: .3s ease all;
 
             svg {
@@ -356,11 +394,27 @@ $order_color: #151B1F;
             fill: white;
         }
     }
+
+    .border {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+        height: 12%;
+        border: none;
+        bottom: 0;
+        transition: .3s ease all;
+
+        &.open {
+            height: 80%;
+            transition: .3s ease all;
+        }
+    }
+
     .order {
         position: fixed;
         bottom: 0;
         background: $order_color;
-        width: 81vw;
+        width: 85vw;
         margin-left: 0;
         padding-top: 8px;
         height: 12%;
@@ -387,8 +441,13 @@ $order_color: #151B1F;
             margin-top: 0;
 
             &.openDesc {
+                display: none;
+            }
+
+            &.openMobile.openDesc {
                 display: flex;
             }
+            
         }
 
         &__pricename {
@@ -396,6 +455,10 @@ $order_color: #151B1F;
             margin-top: 16px;
 
             &.openDesc {
+                display: none;
+            }
+
+            &.openMobile.openDesc {
                 display: flex;
             }
         }

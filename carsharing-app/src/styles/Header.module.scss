@@ -26,7 +26,10 @@ $gray_light: #EEEEEE;
       padding-left: 128px;
     font-size: 30px;
     font-weight: bold;
-    color: $main_color;
+
+    & a {
+      color: $main_color;
+    }
     }
 
     &__map {
@@ -37,10 +40,7 @@ $gray_light: #EEEEEE;
     font-size: 14px;
     font-weight: medium;
     color: #999999;
-    padding-top: 14px;
-    &:hover {
-      cursor: pointer;
-    }
+    align-items: center;
     }
   }
 
@@ -103,6 +103,12 @@ $gray_light: #EEEEEE;
     padding-top: 0;
     margin-left: auto;
     width: 100%;
+
+    &__map {
+      padding-top: 0;
+      margin-right: 16px;
+      margin-top: 8px;
+    }
   }
 
   .header__logo {
@@ -110,14 +116,5 @@ $gray_light: #EEEEEE;
     margin-top: 16px;
     margin-right: 16px;
     text-align: end;
-  }
-
-  .header__map {
-    padding-top: 0;
-    margin-right: 16px;
-
-    &.max {
-      margin-right: 16px;
-    }
   }
 }

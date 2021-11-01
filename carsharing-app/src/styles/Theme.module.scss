@@ -5,7 +5,7 @@ $gray_light: #EEEEEE;
 $order_color: #151B1F;
 
 .container {
-    margin-top: 5px;
+    margin-top: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -17,11 +17,19 @@ $order_color: #151B1F;
     font-size: 14px;
     font-weight: 100;
 }
+
+.suggestionsContainer {
+    position: absolute;
+    display: none;
+}
 .suggestionsContainerOpen {
+    display: block;
     background: white;
     width: 250px;
-    max-height: 106px;
+    max-height: 90px;
     overflow-y: auto;
+    border: 1px solid $gray_light;
+    z-index: 10;
 }
 .suggestionsList {
     list-style: none;

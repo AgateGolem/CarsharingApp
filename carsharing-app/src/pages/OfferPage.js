@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Sidebar from "../Components/SideBar";
 import Header from '../Components/Header';
-import Location from "../Components/Location"
-import Model from "../Components/Model"
-import StepNavigation from "../Components/StepNavigation";
+import Location from "../Components/OrderPage/Location"
+import Model from "../Components/OrderPage/Model"
+import StepNavigation from "../Components/OrderPage/StepNavigation";
+import sidebar from "../styles/SideBarOrder.module.css";
 
 const OfferPage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -10,6 +12,8 @@ const OfferPage = () => {
     const updateStep = (step) => {
         setCurrentStep(step);
     }
+
+    
 
     const renderStep = () => {
         switch (currentStep) {
@@ -32,6 +36,7 @@ const OfferPage = () => {
 
     return (
         <div>
+            <Sidebar sidebar={sidebar} />
             <Header />
             <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep}></StepNavigation>
             { renderStep() }

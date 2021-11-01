@@ -1,3 +1,16 @@
+
+
+.button {
+  &:hover {
+    filter: brightness(0.9);
+    cursor: pointer;
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+}
+  
   .slider {
     width: 50%;
     height: 100%;
@@ -38,7 +51,7 @@
   }
   
   .slide__button {
-    font-weight: bold;
+    font-weight: medium;
     color: white;
     margin-top: 32px;
     width: 164px;
@@ -85,6 +98,12 @@
         opacity: 0.7;
       }
     }
+
+    
+  }
+
+  .end {
+      display: none;
   }
   
   .dots_container {

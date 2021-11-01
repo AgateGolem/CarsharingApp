@@ -2,8 +2,8 @@ import axios from 'axios';
 import data from "./constants.json"
 
 export const requests = {
-    getCities: (path, successcallback, errorcallback) => {
-        axios.get(data['URLServer  '] + path, data.appId)
+    getCities: async (path, successcallback, errorcallback) => {
+        await axios.get(data['URLServer  '] + path, data.appId)
             .then(response => {
                 if(successcallback != null)
                     successcallback(response);
@@ -14,8 +14,8 @@ export const requests = {
             })
     },
 
-    getPoints: (town, path, successcallback, errorcallback) => {
-        axios.get(data['URLServer  '] + path + town.id, data.appId)
+    getPoints: async (town, path, successcallback, errorcallback) => {
+        await axios.get(data['URLServer  '] + path + town.id, data.appId)
             .then(response => {
                 if(successcallback != null)
                     successcallback(response);

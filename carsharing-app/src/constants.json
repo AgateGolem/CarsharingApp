@@ -4,6 +4,7 @@
             "X-Api-Factory-Application-Id": "5e25c641099b810b946c5d5b"
         }
     },
-    "URLServer  ": "https://api-factory.simbirsoft1.com/api/db"
+    "URLServer  ": "https://api-factory.simbirsoft1.com/api/db",
+    "DefaultCity": "Ульяновск"
 
 }
