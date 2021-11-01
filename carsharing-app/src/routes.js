@@ -6,15 +6,13 @@ import OfferPage from "./pages/OfferPage";
 
 export const useRoutes = () => {
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/CarsharingApp" >
-                    <MainPage />
-                </Route>
-                <Route path="/CarsharingApp/offer">
-                    <OfferPage />
-                </Route>
-            </Switch>
-        </Router>
+        <Switch>
+            <Route exact path="/" >
+                <MainPage />
+            </Route>
+            <Route exact path="/offer">
+                <OfferPage />
+            </Route>
+        </Switch>
     )
 }

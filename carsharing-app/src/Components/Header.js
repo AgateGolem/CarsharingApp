@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import data from "../constants.json";
 import { ReactSVG } from "react-svg";
 import map from "../img/icons/map.svg";
@@ -14,9 +14,9 @@ const Header = () => {
         <div className={header.wrapper}>
             <div className={header.header}>
                 <div className={header.header__logo}>
-                    <Link to='/CarsharingApp/' style={{textDecoration: 'none'}}>
+                    <NavLink to="/" style={{textDecoration: 'none'}}>
                         Need for drive
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className={header.header__map}>
                     <div className={header.map__name} onClick={() => setActive(true)}>

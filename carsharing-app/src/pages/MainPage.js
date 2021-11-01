@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import cn from "classnames";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import Sidebar from "../Components/SideBar";
 import {Slides} from "../Components/MainPage/Slides";
@@ -33,11 +33,11 @@ const MainPage = () => {
                         <h1 className={mainpage.content__name}>Каршеринг</h1>
                         <h1 className={cn(mainpage.content__name, mainpage.content__name_colorized)}>Need for drive</h1>
                         <p className={mainpage.content__description}>Поминутная аренда авто твоего города</p>
-                        <Link to={"/CarsharingApp/offer"} style={{textDecoration: 'none'}}>    
+                        <NavLink to="/offer" style={{textDecoration: 'none'}}>    
                             <div className={cn(mainpage.button, mainpage.content__button)}>
                                 Забронировать
                             </div>
-                        </Link>
+                        </NavLink>
                     </div>
                     <div className={mainpage.footer}>
                         <p className={mainpage.footer__license}>2016-2019 "Need for drive"</p>
