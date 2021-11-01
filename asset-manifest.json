@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/CarsharingApp/static/css/main.9324bbee.chunk.css",
-    "main.js": "/CarsharingApp/static/js/main.03071e2c.chunk.js",
-    "main.js.map": "/CarsharingApp/static/js/main.03071e2c.chunk.js.map",
-    "runtime-main.js": "/CarsharingApp/static/js/runtime-main.098f7b85.js",
-    "runtime-main.js.map": "/CarsharingApp/static/js/runtime-main.098f7b85.js.map",
-    "static/js/2.762d2f39.chunk.js": "/CarsharingApp/static/js/2.762d2f39.chunk.js",
-    "static/js/2.762d2f39.chunk.js.map": "/CarsharingApp/static/js/2.762d2f39.chunk.js.map",
+    "main.css": "/CarsharingApp/static/css/main.3f1c6b86.chunk.css",
+    "main.js": "/CarsharingApp/static/js/main.4a610a5c.chunk.js",
+    "main.js.map": "/CarsharingApp/static/js/main.4a610a5c.chunk.js.map",
+    "runtime-main.js": "/CarsharingApp/static/js/runtime-main.3a1568df.js",
+    "runtime-main.js.map": "/CarsharingApp/static/js/runtime-main.3a1568df.js.map",
+    "static/css/2.577e03b8.chunk.css": "/CarsharingApp/static/css/2.577e03b8.chunk.css",
+    "static/js/2.749c20f3.chunk.js": "/CarsharingApp/static/js/2.749c20f3.chunk.js",
+    "static/js/2.749c20f3.chunk.js.map": "/CarsharingApp/static/js/2.749c20f3.chunk.js.map",
     "index.html": "/CarsharingApp/index.html",
-    "static/css/main.9324bbee.chunk.css.map": "/CarsharingApp/static/css/main.9324bbee.chunk.css.map",
-    "static/js/2.762d2f39.chunk.js.LICENSE.txt": "/CarsharingApp/static/js/2.762d2f39.chunk.js.LICENSE.txt",
+    "static/css/2.577e03b8.chunk.css.map": "/CarsharingApp/static/css/2.577e03b8.chunk.css.map",
+    "static/css/main.3f1c6b86.chunk.css.map": "/CarsharingApp/static/css/main.3f1c6b86.chunk.css.map",
+    "static/js/2.749c20f3.chunk.js.LICENSE.txt": "/CarsharingApp/static/js/2.749c20f3.chunk.js.LICENSE.txt",
     "static/media/Ferrari.87959f31.jpg": "/CarsharingApp/static/media/Ferrari.87959f31.jpg",
     "static/media/GTR.136ee431.jpg": "/CarsharingApp/static/media/GTR.136ee431.jpg",
     "static/media/Porsche.65e4ac76.jpg": "/CarsharingApp/static/media/Porsche.65e4ac76.jpg",
@@ -23,12 +25,14 @@
     "static/media/hamburger.1c906d9f.svg": "/CarsharingApp/static/media/hamburger.1c906d9f.svg",
     "static/media/insta.de5c2749.svg": "/CarsharingApp/static/media/insta.de5c2749.svg",
     "static/media/map.5c93b3dd.svg": "/CarsharingApp/static/media/map.5c93b3dd.svg",
+    "static/media/slick-theme.css": "/CarsharingApp/static/media/slick.c94f7671.ttf",
     "static/media/telegram.db24df03.svg": "/CarsharingApp/static/media/telegram.db24df03.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.098f7b85.js",
-    "static/js/2.762d2f39.chunk.js",
-    "static/css/main.9324bbee.chunk.css",
-    "static/js/main.03071e2c.chunk.js"
+    "static/js/runtime-main.3a1568df.js",
+    "static/css/2.577e03b8.chunk.css",
+    "static/js/2.749c20f3.chunk.js",
+    "static/css/main.3f1c6b86.chunk.css",
+    "static/js/main.4a610a5c.chunk.js"
   ]
 }
