@@ -14,8 +14,16 @@ const Location = (props) => {
     const [cities, setCities] = useState([]);
     const [points, setPoints] = useState([]);
     const [toggle, setToggle] = useState(false);
-    const [cityValue, setCityValue] = useState('');
-    const [pointValue, setPointValue] = useState('');
+    const nameCity = useSelector(state => {
+        const { orderReducer } = state;
+        return orderReducer.city;
+    })
+    const namePoint = useSelector(state => {
+        const { orderReducer } = state;
+        return orderReducer.point;
+    })
+    const [cityValue, setCityValue] = useState(nameCity);
+    const [pointValue, setPointValue] = useState(namePoint);
     const [citySuggestions, setCitySuggesitons] = useState(cities);
     const [pointSuggestions, setPointSuggesitons] = useState(points);
     const dispatch = useDispatch();
@@ -30,15 +38,6 @@ const Location = (props) => {
         setToggle(!toggle);
     }
 
-    const nameCity = useSelector(state => {
-        const { orderReducer } = state;
-        return orderReducer.city;
-    })
-    
-    const namePoint = useSelector(state => {
-        const { orderReducer } = state;
-        return orderReducer.point;
-    })
 
     const getPoints = (cityValue) => {
         const town = cities.find(el => el.name === cityValue);
