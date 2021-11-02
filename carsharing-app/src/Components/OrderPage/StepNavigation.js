@@ -7,7 +7,7 @@ const StepNavigation = (props) => {
         <div className={steps.wrapper}>
             <div className={steps.stepper}>
                 <div className={steps.steps}>
-                    {props.labelArray.map((item, index) => <Steps label={item} selected={props.currentStep === index + 1} updateStep={props.updateStep} key={index} index={index}></Steps>)}
+                    {props.labelArray.map((item, index) => <Steps label={item} selected={props.currentStep === index + 1} updateStep={props.updateStep} activeNextStep={props.activeNextStep} key={index} index={index}></Steps>)}
                 </div>
             </div>
         </div>

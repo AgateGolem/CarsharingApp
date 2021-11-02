@@ -51,6 +51,13 @@ $gray_light: #EEEEEE;
     color: $main_color;
 }
 
+.activeNext {
+    &.selected + & {
+        pointer-events: all;
+        color: $main_black;
+    }
+}
+
 @media (min-width: 1440px) {
     .stepper {
         margin: 0 auto;

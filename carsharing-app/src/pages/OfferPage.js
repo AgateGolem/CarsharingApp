@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import Sidebar from "../Components/SideBar";
 import Header from '../Components/Header';
 import Location from "../Components/OrderPage/Location"
@@ -9,7 +10,17 @@ import offer from "../styles/OfferPage.module.css";
 
 const OfferPage = () => {
     const [currentStep, setCurrentStep] = useState(1);
+    const [activeNextStep, setActiveNextStep] = useState(false);
     const labelArray = ['Местоположение', 'Модель', 'Дополнительно', 'Итого']
+    const namePoint = useSelector(state => {
+        const { orderReducer } = state;
+        return orderReducer.point;
+    })
+
+    const setActive = (active) => {
+        setActiveNextStep(active);
+    }
+
     const updateStep = (step) => {
         setCurrentStep(step);
     }
@@ -17,7 +28,7 @@ const OfferPage = () => {
     const renderStep = () => {
         switch (currentStep) {
             case 1: 
-                return <Location updateStep={updateStep} currentStep={currentStep}/>
+                return <Location updateStep={updateStep} currentStep={currentStep} setActive={setActive}/>
             case 2:
                 return <Model updateStep={updateStep} currentStep={currentStep}/>
             case 3: 
@@ -33,7 +44,7 @@ const OfferPage = () => {
         <>
             <Sidebar sidebar={sidebar} />
             <Header />
-            <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep}></StepNavigation>
+            <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep} activeNextStep={activeNextStep}></StepNavigation>
             { renderStep() }
         </>
     )

@@ -56,11 +56,13 @@ const Location = (props) => {
         setPointValue("");
         dispatch(setPoint(""));
         dispatch(setCity(""));
+        props.setActive(false)
     }
 
     const clearPointInput = () => {
         setPointValue("");
         dispatch(setPoint(""));
+        props.setActive(false)
     }
 
     const onChangeCity = (event, { newValue }) => {
@@ -69,6 +71,7 @@ const Location = (props) => {
 
     const onChangePoint = (event, { newValue }) => {
         setPointValue(newValue);
+        if(!newValue) props.setActive(false)
     };
 
     const getCitySuggestions = value => {
@@ -119,8 +122,12 @@ const Location = (props) => {
         </div>
     )
 
-    const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
+    const onSuggestionCitySelected = (event, { suggestion, suggestionValue }) => {
         getPoints(suggestionValue);
+    }
+
+    const onSuggestionPointSelected = (event, { suggestion, suggestionValue }) => {
+        props.setActive(true);
     }
 
 
@@ -169,7 +176,7 @@ const Location = (props) => {
                                 onSuggestionsFetchRequested={onCitySuggestionsFetchRequested}
                                 onSuggestionsClearRequested={onCitySuggestionsClearRequested}
                                 getSuggestionValue={getCitySuggestionValue}
-                                onSuggestionSelected={onSuggestionSelected}
+                                onSuggestionSelected={onSuggestionCitySelected}
                                 renderSuggestion={renderCitySuggestion}
                                 inputProps={inputPropsCity}
                                 theme={theme}
@@ -186,6 +193,7 @@ const Location = (props) => {
                                 onSuggestionsFetchRequested={onPointSuggestionsFetchRequested}
                                 onSuggestionsClearRequested={onPointSuggestionsClearRequested}
                                 getSuggestionValue={getPointSuggestionValue}
+                                onSuggestionSelected={onSuggestionPointSelected}
                                 renderSuggestion={renderPointSuggestion}
                                 inputProps={inputPropsPoint}
                                 theme={theme}

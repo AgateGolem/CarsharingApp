@@ -43,6 +43,11 @@
   color: #0EC261;
 }
 
+.activeNext.selected + .activeNext {
+  pointer-events: all;
+  color: #121212;
+}
+
 @media (min-width: 1440px) {
   .stepper {
     margin: 0 auto;
