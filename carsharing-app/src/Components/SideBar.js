@@ -21,7 +21,7 @@ const SideBar = (props) => {
     }
 
     return (
-        <div>
+        <>
             <div className={sidebar.menu}>
                 <div className={cn(sidebar.menu__icon, sidebar.open)} onClick={toggleMenu}>
                     <Hamburger />
@@ -54,7 +54,7 @@ const SideBar = (props) => {
                 </div>
                 <div className={sidebar.slider__back}></div>
             </div>
-        </div>
+        </>
     )
 }
 

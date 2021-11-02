@@ -6,21 +6,22 @@ $gray_light: #EEEEEE;
 
 .wrapper {
     display: flex;
-    margin-top: 102px;
+    margin-top: 32px;
     border-top: $gray_light 1px solid;
     border-bottom: $gray_light 1px solid;
-    position: absolute;
-    top: 0;
-    display: flex;
+    width: 100vw;
+}
+
+.stepper {
     width: 100%;
+    max-width: 1440px;
 }
 
 .steps {
-    margin-left: 64px;
     padding: 8px 0;
-    padding-left: 64px;
+    margin-left: 128px;
     display: flex;
-    max-width: 1440px;
+    width: 100%;
 }
 
 .step {
@@ -50,17 +51,21 @@ $gray_light: #EEEEEE;
     color: $main_color;
 }
 
-@media (min-width: 1632px) {
-	.steps {
-        width: 1440px;
-        padding-left: 0;
+@media (min-width: 1440px) {
+    .stepper {
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .steps {
+        margin-left: 96px;
     }
 }
 
 @media (max-width: 767px) {
     .steps {
-        padding-left: 32px;
+        margin-left: 96px;
     }
 }
 
@@ -69,7 +74,6 @@ $gray_light: #EEEEEE;
         display:inherit;
     }
 	.steps {
-        padding-left: 0;
         margin-left: 0;
         display: flex;
         justify-content:space-evenly;

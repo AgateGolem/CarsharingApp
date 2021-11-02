@@ -6,8 +6,8 @@ $gray_light: #EEEEEE;
 $order_color: #151B1F;
 .wrapper {
     display: flex;
-    width: 100vw;
-    margin-top: 134px;
+    width: 100%;  
+    max-width: 1440px;
 }
 
 .main {
@@ -19,8 +19,7 @@ $order_color: #151B1F;
 
 .left {
     width: 61.5vw;
-    margin-left: 64px;
-    padding-left: 64px;
+    margin-left: 128px;
 }
 
 .active {
@@ -228,17 +227,20 @@ $order_color: #151B1F;
     text-align: right;
 }
 
-@media (min-width: 1632px) {
-    .main {
-        width: 1440px;
+@media (min-width: 1440px) {
+    .wrapper {
         margin: 0 auto;
     }
 	.left {
-        margin-left: 0;
+        margin-left: 128;
         padding-left: 0;
     }
 }
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
+
+    .left {
+        margin-left: 96px;
+    }
 	.order {
         width: 180px;
 
@@ -260,10 +262,6 @@ $order_color: #151B1F;
 
 @media (max-width: 767px) {
     .steps {
-        padding-left: 32px;
-    }
-
-    .left {
         padding-left: 32px;
     }
 

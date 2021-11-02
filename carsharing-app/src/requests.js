@@ -24,5 +24,17 @@ export const requests = {
                 if(errorcallback != null)
                     errorcallback(error);
             })
+    },
+
+    getModels: async (path, successcallback, errorcallback) => {
+        await axios.get(data['URLServer  '] + path, data.appId)
+        .then(response => {
+            if(successcallback != null)
+                successcallback(response);
+        })
+        .catch((error) => {
+            if(errorcallback != null)
+                errorcallback(error);
+        })
     }
 }

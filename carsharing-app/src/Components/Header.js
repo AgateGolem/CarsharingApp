@@ -8,8 +8,6 @@ import header from "../styles/Header.module.css";
 const Header = () => {
     const [active, setActive] = useState(false)
     const [city, setCity] = useState(data.DefaultCity)
-
-    console.log(active)
     return (
         <div className={header.wrapper}>
             <div className={header.header}>

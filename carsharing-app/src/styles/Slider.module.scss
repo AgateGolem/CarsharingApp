@@ -27,9 +27,9 @@
   
   .slide__desc {
     position: relative;
-    padding-left: 97px;
-    margin-top: 237px;
-    width: 50%;
+    margin-left: 97px;
+    margin-top: 260px;
+    width: 70%;
     height: 100vh;
     line-height: initial;
     text-align: left;
@@ -40,18 +40,19 @@
     font-size: 40px;
     font-weight: 500;
     color: white;
-    font-weight: medium;
+    font-weight: 500;
   }
   
   .slide__text {
     margin-top: 8px;
     color: #EEEEEE;
-    font-weight: thin;
+    font-weight: 100;
+    font-size: 24px;
     width: 100%;
   }
   
   .slide__button {
-    font-weight: medium;
+    font-weight: 500;
     color: white;
     margin-top: 32px;
     width: 164px;
@@ -152,13 +153,17 @@
     background-color: transparent;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1024px) {
     .slide__desc {
-      padding-left: 50px;
+      margin-left: 50px;
     }
 
     .slide__head {
       font-size: 30px;
+    }
+
+    .slide__text {
+      font-size: 22px;
     }
   }
 

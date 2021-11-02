@@ -5,6 +5,7 @@ import Location from "../Components/OrderPage/Location"
 import Model from "../Components/OrderPage/Model"
 import StepNavigation from "../Components/OrderPage/StepNavigation";
 import sidebar from "../styles/SideBarOrder.module.css";
+import offer from "../styles/OfferPage.module.css";
 
 const OfferPage = () => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -13,34 +14,28 @@ const OfferPage = () => {
         setCurrentStep(step);
     }
 
-    
-
     const renderStep = () => {
         switch (currentStep) {
-            
             case 1: 
                 return <Location updateStep={updateStep} currentStep={currentStep}/>
             case 2:
-                break;
-
+                return <Model updateStep={updateStep} currentStep={currentStep}/>
             case 3: 
                 break;
-
             case 4: 
                 break;
-
             default:
                 return <Location updateStep={updateStep} currentStep={currentStep}/>
         }
     }
 
     return (
-        <div>
+        <>
             <Sidebar sidebar={sidebar} />
             <Header />
             <StepNavigation labelArray={labelArray} currentStep={currentStep} updateStep={updateStep}></StepNavigation>
             { renderStep() }
-        </div>
+        </>
     )
 }
 
