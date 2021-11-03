@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/CarsharingApp/static/css/main.086a5e2c.chunk.css",
+    "main.css": "/CarsharingApp/static/css/main.b924100f.chunk.css",
     "main.js": "/CarsharingApp/static/js/main.09445464.chunk.js",
     "main.js.map": "/CarsharingApp/static/js/main.09445464.chunk.js.map",
     "runtime-main.js": "/CarsharingApp/static/js/runtime-main.3a1568df.js",
@@ -10,7 +10,7 @@
     "static/js/2.90493032.chunk.js.map": "/CarsharingApp/static/js/2.90493032.chunk.js.map",
     "index.html": "/CarsharingApp/index.html",
     "static/css/2.577e03b8.chunk.css.map": "/CarsharingApp/static/css/2.577e03b8.chunk.css.map",
-    "static/css/main.086a5e2c.chunk.css.map": "/CarsharingApp/static/css/main.086a5e2c.chunk.css.map",
+    "static/css/main.b924100f.chunk.css.map": "/CarsharingApp/static/css/main.b924100f.chunk.css.map",
     "static/js/2.90493032.chunk.js.LICENSE.txt": "/CarsharingApp/static/js/2.90493032.chunk.js.LICENSE.txt",
     "static/media/Ferrari.87959f31.jpg": "/CarsharingApp/static/media/Ferrari.87959f31.jpg",
     "static/media/GTR.136ee431.jpg": "/CarsharingApp/static/media/GTR.136ee431.jpg",
@@ -32,7 +32,7 @@
     "static/js/runtime-main.3a1568df.js",
     "static/css/2.577e03b8.chunk.css",
     "static/js/2.90493032.chunk.js",
-    "static/css/main.086a5e2c.chunk.css",
+    "static/css/main.b924100f.chunk.css",
     "static/js/main.09445464.chunk.js"
   ]
 }
