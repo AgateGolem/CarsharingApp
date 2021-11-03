@@ -1,0 +1,30 @@
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import data from "../constants.json";
+import { ReactSVG } from "react-svg";
+import map from "../img/icons/map.svg";
+import header from "../styles/Header.module.css";
+
+const Header = () => {
+    const [active, setActive] = useState(false)
+    const [city, setCity] = useState(data.DefaultCity)
+    return (
+        <div className={header.wrapper}>
+            <div className={header.header}>
+                <div className={header.header__logo}>
+                    <NavLink to="/" style={{textDecoration: 'none'}}>
+                        Need for drive
+                    </NavLink>
+                </div>
+                <div className={header.header__map}>
+                    <div className={header.map__name} onClick={() => setActive(true)}>
+                        <ReactSVG src={map} />
+                        <div className={header.city__name}>{city}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Header;

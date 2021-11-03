@@ -1,0 +1,52 @@
+.container {
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #999999;
+  width: 250px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.suggestionsContainer {
+  position: absolute;
+  display: none;
+}
+
+.suggestionsContainerOpen {
+  display: block;
+  background: white;
+  width: 250px;
+  max-height: 90px;
+  overflow-y: auto;
+  border: 1px solid #EEEEEE;
+  z-index: 10;
+}
+
+.suggestionsList {
+  list-style: none;
+  padding: 0 8px;
+}
+
+.suggestion {
+  margin: 8px 0;
+  color: #999999;
+}
+.suggestion:hover {
+  color: #0EC261;
+  cursor: pointer;
+}
+
+.suggestionHighlighted {
+  color: #0EC261;
+}
+
+@media (max-width: 767px) {
+  .input {
+    width: 200px;
+  }
+}/*# sourceMappingURL=Theme.module.css.map */
