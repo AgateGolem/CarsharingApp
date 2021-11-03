@@ -122,16 +122,6 @@ $menu_color: #151B1F;
 .menu__language.mobile {
 	display: none;
 }
-@media screen and (max-width: 1199px) {
-	.menu__opened {
-		width: calc((100% - 128px) / 2 + 164px);
-	}
-}
-@media (max-width: 1024px) {
-	.menu__opened {
-		width: calc((100% - 96px) * 0.6 + 137px);
-	}
-}
 
 @media (max-width: 767px) {
     .menu__opened {

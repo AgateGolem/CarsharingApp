@@ -235,6 +235,7 @@
 
   .order {
     width: 150px;
+    padding-right: 38px;
   }
   .order__button {
     width: 145px;
